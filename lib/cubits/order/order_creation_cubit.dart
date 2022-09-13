@@ -20,7 +20,7 @@ class OrderCreationCubit extends Cubit<OrderCreationCubitState> {
         creditCardCvv: "123",
         creditCardNumber: "1234 4567 8910 1112",
         creditCardOwner: "CREDIT C OWNER",
-        timestamp: DateTime.now(),
+        creditCardExpirationMonthYear: '11/23',
         products: bag.products.map((e) => OrderProductDto(
           name: e.product.name,
           price: e.product.price,

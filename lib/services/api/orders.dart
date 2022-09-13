@@ -21,8 +21,7 @@ class Orders {
 
   Future<List<OrderDto>> fetch(String userId) async {
     try {
-      // final response = await _client.get('/user/$userId');
-      final response = await _client.get('');
+      final response = await _client.get('/user/$userId');
       if (response.statusCode == 200) {
         final orders = response.data as List;
         return orders.map(

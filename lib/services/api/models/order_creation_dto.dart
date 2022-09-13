@@ -6,7 +6,7 @@ class OrderCreationDto {
   String creditCardCvv;
   String creditCardNumber;
   String creditCardOwner;
-  DateTime timestamp;
+  String creditCardExpirationMonthYear;
   List<OrderProductDto> products;
   String user;
 
@@ -14,7 +14,7 @@ class OrderCreationDto {
     required this.creditCardCvv,
     required this.creditCardNumber,
     required this.creditCardOwner,
-    required this.timestamp,
+    required this.creditCardExpirationMonthYear,
     required this.products,
     required this.user
   });
@@ -25,7 +25,7 @@ class OrderCreationDto {
       "creditCardNumber": creditCardNumber,
       "creditCardOwner": creditCardOwner,
       "products": products.map((e) => e.toMap()).toList(),
-      "timestamp": timestamp.toUtc().toIso8601String(),
+      "creditCardExpirationMonthYear": creditCardExpirationMonthYear,
       "user": user
     };
     // return {
