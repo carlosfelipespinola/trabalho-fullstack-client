@@ -12,11 +12,15 @@ class ProductListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       leading: RoundedAvatar(
-        child: Image.network(product.imageUrl),
+        aspectRatio: 1,
+        child: Image.network(
+          product.imageUrl,
+          fit: BoxFit.cover,
+        ),
       ),
       onTap: () => showProductBottomSheet(context),
       title: Text(product.name),
-      subtitle: Text(product.price.toString()),
+      subtitle: Text('R\$ ${product.price.toStringAsFixed(2)}'),
     );
   }
 

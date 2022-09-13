@@ -12,8 +12,18 @@ class ProductsListView extends StatelessWidget {
           return const Center(child: CircularProgressIndicator());
         }
         if (state is ProductsCubitError) {
-          return const Center(
-            child: Text('Ocorreu um erro ao buscar produtos'),
+          return Center(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Text('Ocorreu um erro ao buscar produtos'),
+                SizedBox(height: SpacingsHelper.medium,),
+                ElevatedButton(
+                  onPressed: () => context.read<ProductsCubit>().fetch(),
+                  child: const Text('Tentar novamente')
+                )
+              ],
+            ),
           );
         }
         return ListView.separated(

@@ -24,11 +24,11 @@ class _ProductDetailsBottomSheetState extends State<ProductDetailsBottomSheet> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         RoundedAvatar(
+          aspectRatio: 16 / 10,
           child: Image.network(
             widget.product.imageUrl,
             width: double.infinity,
             fit: BoxFit.cover,
-            height: 200,
           ),
         ),
         SizedBox(height: SpacingsHelper.medium,),
