@@ -28,5 +28,5 @@ class BagListItem extends StatelessWidget {
     context.read<BagCubit>().remove(bagProduct);
   }
 
-  String get description => "${bagProduct.quantity} X R\$ ${bagProduct.product.price} = R\$ ${bagProduct.totalPrice}";
+  String get description => "${bagProduct.quantity} X R\$ ${bagProduct.product.price.toStringAsFixed(2)} = R\$ ${bagProduct.totalPrice.toStringAsFixed(2)}";
 }

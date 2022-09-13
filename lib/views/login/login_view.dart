@@ -14,37 +14,43 @@ class LoginView extends StatelessWidget {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       body: Center(
-        child: Card(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
-            child: BlocListener<AuthCubit, AuthCubitState>(
-              listenWhen: (previous, current) => previous is AuthCubitBusy,
-              listener: (context, state) {
-                if (state is AuthCubitAuthenticated) {
-                  Navigator.of(context).pushReplacementNamed(NavigationHelper.routes.home);
-                }
-                if (state is AuthCubitError) {
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                    content: Text(
-                      "Ocorreu um erro ao fazer login",
-                      style: TextStyle(color: Theme.of(context).colorScheme.onError),
-                    ),
-                    backgroundColor: Theme.of(context).colorScheme.error,
-                  ));
-                }
-              },
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const LoginForm(),
-                  Divider(height: SpacingsHelper.large,),
-                  TextButton(
-                    onPressed: () => Navigator.of(context).pushNamed(NavigationHelper.routes.register),
-                    child: const Text("REGISTRAR")
-                  )
-                ],
+        child: SingleChildScrollView(
+          child: Card(
+            margin: EdgeInsets.symmetric(horizontal: SpacingsHelper.xlarge),
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: SpacingsHelper.xlarge,
+                vertical: SpacingsHelper.xlarge
+              ),
+              child: BlocListener<AuthCubit, AuthCubitState>(
+                listenWhen: (previous, current) => previous is AuthCubitBusy,
+                listener: (context, state) {
+                  if (state is AuthCubitAuthenticated) {
+                    Navigator.of(context).pushReplacementNamed(NavigationHelper.routes.home);
+                  }
+                  if (state is AuthCubitError) {
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      content: Text(
+                        "Ocorreu um erro ao fazer login",
+                        style: TextStyle(color: Theme.of(context).colorScheme.onError),
+                      ),
+                      backgroundColor: Theme.of(context).colorScheme.error,
+                    ));
+                  }
+                },
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const LoginForm(),
+                    Divider(height: SpacingsHelper.large,),
+                    TextButton(
+                      onPressed: () => Navigator.of(context).pushNamed(NavigationHelper.routes.register),
+                      child: const Text("REGISTRAR")
+                    )
+                  ],
+                )
               )
-            )
+            ),
           ),
         ),
       ),

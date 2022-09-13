@@ -12,7 +12,7 @@ class OrderListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       isThreeLine: true,
-      title: Text("Pedido #${order.humanReadableId}"),
+      title: Text("Pedido #${order.humanReadableId.toUpperCase()}"),
       subtitle: Row(
         children: [
           Chip(label: Text("${order.products.length} itens")),

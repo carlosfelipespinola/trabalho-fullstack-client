@@ -50,7 +50,7 @@ class _ProductDetailsBottomSheetState extends State<ProductDetailsBottomSheet> {
                   children: [
                     const Text("ADICIONAR"),
                     const Spacer(),
-                    Text("R\$ $totalPrice")
+                    Text("R\$ ${totalPrice.toStringAsFixed(2)}")
                   ],
                 )
               ),
